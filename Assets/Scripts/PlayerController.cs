@@ -3,10 +3,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
   [SerializeField]
-  protected float speed;
+  protected float speed = 50f;
 
   [SerializeField]
-  protected float agility;
+  protected float agility = 50f;
 
   void Update()
   {
@@ -16,33 +16,29 @@ public class PlayerController : MonoBehaviour
 
   void Movement()
   {
-    var player = transform;
-
     if (Input.GetKey(KeyCode.Space))
     {
-      player.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+      transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
     }
   }
 
   void Rotation()
   {
-    var player = transform;
-
     if (Input.GetKey(KeyCode.UpArrow))
     {
-      player.Rotate(new Vector3(agility * Time.deltaTime, 0, 0));
+      transform.Rotate(new Vector3(agility * Time.deltaTime, 0, 0));
     }
     if (Input.GetKey(KeyCode.DownArrow))
     {
-      player.Rotate(new Vector3(-agility * Time.deltaTime, 0, 0));
+      transform.Rotate(new Vector3(-agility * Time.deltaTime, 0, 0));
     }
     if (Input.GetKey(KeyCode.LeftArrow))
     {
-      player.Rotate(new Vector3(0, 0, agility * Time.deltaTime));
+      transform.Rotate(new Vector3(0, 0, agility * Time.deltaTime));
     }
     if (Input.GetKey(KeyCode.RightArrow))
     {
-      player.Rotate(new Vector3(0, 0, -agility * Time.deltaTime));
+      transform.Rotate(new Vector3(0, 0, -agility * Time.deltaTime));
     }
   }
 }

@@ -6,31 +6,31 @@ public class CameraController : MonoBehaviour
   protected GameObject target;
 
   [SerializeField]
-  protected Vector3 offset;
+  protected Vector3 offset = new Vector3(0, 6, -20);
 
   [SerializeField]
-  protected float speed;
+  protected float speed = 5f;
 
   void Update()
   {
+    if (target == null)
+    {
+      return;
+    }
+
     Movement();
     Rotation();
   }
 
   void Movement()
   {
-    var cameraPosition = transform.position;
-    var targetRight = target.transform.right;
-    var targetUp = target.transform.up;
-    var targetForward = target.transform.forward;
-    var targetPosition = target.transform.position - (targetRight * offset.x) - (targetUp * offset.y) - (targetForward * offset.z);
-    transform.position = Vector3.Slerp(cameraPosition, targetPosition, speed * Time.deltaTime);
+    var targetPosition = target.transform.position + (target.transform.rotation * offset);
+    transform.position = Vector3.Slerp(transform.position, targetPosition, speed * Time.deltaTime);
   }
 
   void Rotation()
   {
-    var cameraRotation = transform.rotation;
-    var targetRotation = target.transform.rotation;
-    transform.rotation = Quaternion.Slerp(cameraRotation, targetRotation, speed * Time.deltaTime);
+    var targetForward = target.transform.position - transform.position;
+    transform.rotation = Quaternion.LookRotation(targetForward, target.transform.up);
   }
 }
