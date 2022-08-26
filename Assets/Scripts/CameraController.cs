@@ -24,7 +24,6 @@ public class CameraController : MonoBehaviour
 
   void Movement()
   {
-    // test
     var targetPosition = target.transform.position + (target.transform.rotation * offset);
     transform.position = Vector3.Slerp(transform.position, targetPosition, speed * Time.deltaTime);
   }
