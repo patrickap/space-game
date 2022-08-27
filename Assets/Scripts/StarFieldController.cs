@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StarFieldController : MonoBehaviour
+public class StarfieldController : MonoBehaviour
 {
   private ParticleSystem.Particle[] points;
   private float starDistanceSqr;
