@@ -9,6 +9,6 @@
 <img width="400" alt="preview-2" src="Docs/preview-2.png">
 <img width="400" alt="preview-3" src="Docs/preview-3.png">
 <img width="400" alt="preview-4" src="Docs/preview-4.png">
-<img width="400" alt="preview-4" src="Docs/preview-5.png">
-<img width="400" alt="preview-4" src="Docs/preview-6.png">
+<img width="400" alt="preview-5" src="Docs/preview-5.png">
+<img width="400" alt="preview-6" src="Docs/preview-6.png">
 </p>
